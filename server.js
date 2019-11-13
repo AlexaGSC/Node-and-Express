@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 const users = [{ id: 0, name: 'Pepe'}, { id: 1, name: 'Juan'}];
 
@@ -37,5 +38,12 @@ app.post('/users', (req, res)=>{
     users.push(newUser);
     res.json(newUser);
 });
+
+app.post('/usersP', (req, res) => {
+    const newUser = req.body;
+    newUser.id = Math.random();
+    users.push(newUser);
+    res.json(newUser);
+  });
 
 app.listen(3000, ()=> console.log('Ready on port 3000!'));
