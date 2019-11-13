@@ -9,8 +9,8 @@ app.get('/films', (req, res) => {
 });
 
 app.put('/films', (req, res) => {
-    var id = req.body.id;
-    var film = films.find(movie => movie.ID === id);
+    const id = req.body.id;
+    const film = films.find(movie => movie.ID === id);
     if (film) {
         film.likes++;
         res.send(films);
@@ -19,15 +19,15 @@ app.put('/films', (req, res) => {
 });
 
 app.post('/films', (req, res) => {
-    var title = req.body.title;
+    const title = req.body.title;
     if (title !== null) {
     films.push({ id: films[films.length - 1].id + 1, likes: 0, title: title });
     }
 });
 
 app.delete('./films', (req, res) => {
-    var id = req.body.id;
-    var film = films.findIndex(film => film.ID == id);
+    const id = req.body.id;
+    const film = films.findIndex(film => film.ID == id);
     films.splice(film);
 });
 
