@@ -27,7 +27,7 @@ app.post('/films', (req, res) => {
 
 app.delete('./films', (req, res) => {
     var id = req.body.id;
-    var film = films.find(film => film.ID == id);
+    var film = films.findIndex(film => film.ID == id);
     films.splice(film);
 });
 
