@@ -15,7 +15,7 @@ let films = [
 
 function fillDB() {
     for (var x = 0; x < 3; x++) {
-        db.push({ name: "Alexa" + _.random(0, 100), age: 28 + _.random(0, 50) });
+        db.push({ name: "Alexa" + _.random(0, 100), age: 24 + _.random(0, 50) });
     }
 }
 
