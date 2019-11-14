@@ -1,9 +1,28 @@
 const express = require("express");
 const router = express.Router();
+const controller = require('./controller');
+
+
+router.get('/', (req, res) => res.json(controller.getMovies()));
+router.get('/:id', (req, res) => magic.getMovie);
+
+
+router.put('/', (req, res) => { });
+
+router.put('/', (req, res) => { });
+
+router.post('/', (req, res) => { });
+
+router.delete('/', (req, res) => { });
+
+
+module.exports = router;
 
 
 
 
+
+/*
 let films = [
     { ID: 0, likes: 0, title: "El misterio de los cuadros" },
     { ID: 1, likes: 0, title: "Apocalipsis final" },
@@ -48,5 +67,4 @@ router.delete('/', (req, res) => {
 
 //router START
 
-
-module.exports = router;
+*/
