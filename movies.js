@@ -14,8 +14,8 @@ let films = [
 ];
 
 function fillDB() {
-    for (var x = 0; x < 3; x++) {
-        db.push({ name: "Alexa" + _.random(0, 100), age: 24 + _.random(0, 50) });
+    for (var x = 0; x < 6; x++) {
+        db.push({ name: "Ayoze" + _.random(0, 100), age: 28 + _.random(0, 50) });
     }
 }
 
@@ -29,9 +29,8 @@ app.post('/adduser', (req, res) => {
     if (name != null && age != null) {
         db.push({ name: name, age: parseInt(age) });
         res.send(db);
-    } else {
-        res.send("No se han proporcionado todos los campos necesarios");
     }
+    else res.send("No se han proporcionado todos los campos necesarios");
 });
 
 //API REST FILMS
@@ -51,14 +50,21 @@ app.put('/films', (req, res) => {
 
 app.post('/films', (req, res) => {
     var title = req.body.title;
-    if (title != null) films.push({ id: films[films.length - 1].id + 1, likes: 0, title: title })
+    if (title != null) {
+        films.push({ id: films[films.length - 1].id + 1, likes: 0, title: title });
+        res.send(films);
+    }
+    else res.send("No se ha podido insertar la película")
 });
 
 app.delete('/films', (req, res) => {
     var id = req.body.id;
     var film = films.findIndex(movie => movie.ID == id);
-    if (film > 0) films.splice(film, 1);
-    res.send(films);
+    if (film >= 0) {
+        films.splice(film, 1);
+        res.send(films);
+    }
+    else res.send("No se ha podido eliminar la película con ID: " + id);
 });
 
 //APP START
